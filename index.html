@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>نامیا | پلتفرم هوشمند خدمات</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Fonts: Vazirmatn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="bg-stage">
+      <!-- Background Elements -->
+      <div class="bg-blob blob-blue" aria-hidden="true"></div>
+      <div class="bg-blob blob-green" aria-hidden="true"></div>
+      <div class="bg-grid" aria-hidden="true"></div>
+      <div class="bg-noise" aria-hidden="true"></div>
+
+      <header class="header">
+        <div class="container">
+          <div class="header-inner">
+            <!-- Logo -->
+            <a href="#" class="logo" aria-label="نامیا">
+              <span class="logo-mark" aria-hidden="true"></span>
+              <span>نامیا</span>
+            </a>
+
+            <!-- Navigation -->
+            <nav class="nav" id="nav" aria-label="ناوبری اصلی">
+              <a href="#" class="active">صفحه اصلی</a>
+              <a href="#">خدمات</a>
+              <a href="#">نمونه‌کارها</a>
+              <a href="#">تعرفه‌ها</a>
+              <a href="#">تماس با ما</a>
+            </nav>
+
+            <!-- Header Search -->
+            <div class="header-search" id="headerSearch">
+              <button
+                class="search-tab"
+                id="searchTab"
+                type="button"
+                aria-expanded="false"
+                aria-controls="searchDropdown"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>جست‌وجو</span>
+              </button>
+
+              <div
+                class="search-dropdown"
+                id="searchDropdown"
+                role="dialog"
+                aria-label="جست‌وجو"
+              >
+                <form class="search-form" role="search">
+                  <button
+                    class="search-icon-btn"
+                    type="submit"
+                    aria-label="جست‌وجو"
+                  >
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+
+                  <input
+                    id="searchInput"
+                    type="search"
+                    placeholder="مثلاً: دامنه، هاست، طراحی سایت..."
+                    aria-label="متن جست‌وجو"
+                  />
+                </form>
+
+                <div
+                  class="search-suggestions"
+                  aria-label="جست‌وجوهای پیشنهادی"
+                >
+                  <a href="#">دامنه</a>
+                  <a href="#">هاست</a>
+                  <a href="#">طراحی سایت</a>
+                  <a href="#">سئو</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button
+              class="menu-toggle"
+              id="menuToggle"
+              aria-label="باز کردن منو"
+              aria-expanded="false"
+              aria-controls="nav"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="hero">
+        <div class="container hero-inner">
+          <section class="hero-content">
+            <div class="hero-text">
+              <h1>
+                نامیا،
+                <br />
+                همه خدمات در یک پلتفرم هوشمند
+              </h1>
+              <p>راهکاری هوشمند برای مدیریت خدمات شما، سریع، آسان و مطمئن</p>
+
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#">
+                  <i class="fa-solid fa-rocket"></i>
+                  شروع کنید
+                </a>
+
+                <a class="btn btn-secondary" href="#">
+                  <i class="fa-regular fa-circle-play"></i>
+                  معرفی ویدیویی
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-visual">
+              <div class="visual-card visual-main">
+                <div class="screen-top"></div>
+                <div class="screen-body">
+                  <div class="mock-row"></div>
+                  <div class="mock-row short"></div>
+                  <div class="mock-grid">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating Badges for Visual Interest -->
+              <div class="floating-badge badge-1">
+                <span></span>
+                <p>ثبت نام</p>
+              </div>
+
+              <div class="floating-badge badge-2">
+                <span></span>
+                <p>سفارش</p>
+              </div>
+
+              <div class="floating-badge badge-3">
+                <span></span>
+                <p>استخدام</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Service Cards Grid -->
+          <section class="services">
+            <article class="service-card">
+              <div class="icon icon-blue"><i class="fas fa-user-plus"></i></div>
+              <h3>ثبت نام</h3>
+              <p>ثبت نام سریع و آسان با چند کلیک</p>
+            </article>
+
+            <article class="service-card">
+              <div class="icon icon-green">
+                <i class="fas fa-clipboard-list"></i>
+              </div>
+              <h3>ثبت سفارش</h3>
+              <p>ثبت سفارش و پیگیری در لحظه</p>
+            </article>
+
+            <article class="service-card">
+              <div class="icon icon-navy"><i class="fas fa-briefcase"></i></div>
+              <h3>استخدام</h3>
+              <p>فرصت‌های شغلی و ارسال رزومه</p>
+            </article>
+
+            <article class="service-card">
+              <div class="icon icon-cyan"><i class="fas fa-book-open"></i></div>
+              <h3>کاتالوگ دیجیتال</h3>
+              <p>مشاهده محصولات و خدمات به صورت دیجیتال</p>
+            </article>
+
+            <article class="service-card">
+              <div class="icon icon-royal">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <h3>فروشگاه اینترنتی</h3>
+              <p>خرید آنلاین آسان، امن و سریع</p>
+            </article>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
