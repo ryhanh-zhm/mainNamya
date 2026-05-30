@@ -191,6 +191,12 @@ a {
   font-size: 18px;
   line-height: 1;
 }
+.hero-logo {
+  height: 140px;
+  width: auto;
+  display: block;
+  margin-bottom: 15px;
+}
 
 /* Mobile */
 @media (max-width: 768px) {
