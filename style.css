@@ -143,9 +143,9 @@ a {
 .header {
   position: sticky;
   top: 0;
-  z-index: 2000; /* higher than content & blobs */
-  padding: 18px 0;
-  overflow: visible;
+  z-index: 2000;
+  height: 72px;
+  padding: 0;
 
   background: rgba(255, 255, 255, 0.28);
   border-bottom: 1px solid rgba(28, 99, 255, 0.08);
@@ -155,34 +155,54 @@ a {
 
 .header .container,
 .header-inner {
-  overflow: visible; /* IMPORTANT: don't clip dropdown */
+  overflow: visible;
 }
 
 .header-inner {
-  position: relative; /* ok, but dropdown should anchor to header-search */
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  height: 100%;
 }
-
-.logo {
-  display: flex;
+/* Logo */
+.header .logo {
+  display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-weight: 900;
-  color: var(--green);
-  font-size: 28px;
+  min-width: max-content;
+  position: relative;
 }
 
-.logo-mark {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--green), var(--blue));
-  box-shadow: 0 0 0 7px rgba(32, 184, 106, 0.1);
+.header .logo img,
+.header .logo-img {
+  height: 80px;
+  width: auto;
+  max-height: none;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.1));
 }
 
+.header .logo .brand-name {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .header {
+    height: 64px;
+  }
+
+  .header .logo img,
+  .header .logo-img {
+    height: 50px;
+  }
+}
 .nav {
   display: flex;
   align-items: center;
