@@ -46,52 +46,65 @@
               <a href="#">تماس با ما</a>
             </nav>
 
-            <!-- Header Search -->
-            <div class="header-search" id="headerSearch">
-              <button
-                class="search-tab"
-                id="searchTab"
-                type="button"
-                aria-expanded="false"
-                aria-controls="searchDropdown"
-              >
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <span>جست‌وجو</span>
-              </button>
-
-              <div
-                class="search-dropdown"
-                id="searchDropdown"
-                role="dialog"
-                aria-label="جست‌وجو"
-              >
-                <form class="search-form" role="search">
-                  <button
-                    class="search-icon-btn"
-                    type="submit"
-                    aria-label="جست‌وجو"
-                  >
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                  </button>
-
-                  <input
-                    id="searchInput"
-                    type="search"
-                    placeholder="مثلاً: دامنه، هاست، طراحی سایت..."
-                    aria-label="متن جست‌وجو"
-                  />
-                </form>
+            <!-- Header Search + Login Icon -->
+            <div class="header-actions">
+              <!-- Header Search -->
+              <div class="header-search" id="headerSearch">
+                <button
+                  class="search-tab"
+                  id="searchTab"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="searchDropdown"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <span>جست‌وجو</span>
+                </button>
 
                 <div
-                  class="search-suggestions"
-                  aria-label="جست‌وجوهای پیشنهادی"
+                  class="search-dropdown"
+                  id="searchDropdown"
+                  role="dialog"
+                  aria-label="جست‌وجو"
                 >
-                  <a href="#">دامنه</a>
-                  <a href="#">هاست</a>
-                  <a href="#">طراحی سایت</a>
-                  <a href="#">سئو</a>
+                  <form class="search-form" role="search">
+                    <button
+                      class="search-icon-btn"
+                      type="submit"
+                      aria-label="جست‌وجو"
+                    >
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+
+                    <input
+                      id="searchInput"
+                      type="search"
+                      placeholder="مثلاً: دامنه، هاست، طراحی سایت..."
+                      aria-label="متن جست‌وجو"
+                    />
+                  </form>
+
+                  <div
+                    class="search-suggestions"
+                    aria-label="جست‌وجوهای پیشنهادی"
+                  >
+                    <a href="#">دامنه</a>
+                    <a href="#">هاست</a>
+                    <a href="#">طراحی سایت</a>
+                    <a href="#">سئو</a>
+                  </div>
                 </div>
               </div>
+
+              <!-- Login icon button -->
+              <button
+                class="login-icon-btn"
+                id="openLoginModal"
+                type="button"
+                aria-label="ورود / ثبت نام"
+              >
+                <i class="fa-regular fa-user"></i>
+              </button>
             </div>
 
             <!-- Mobile menu button -->
@@ -109,6 +122,47 @@
           </div>
         </div>
       </header>
+
+      <!-- Login/Signup Modal (phone number) -->
+      <div class="modal-backdrop" id="loginModal" hidden>
+        <div
+          class="modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="loginTitle"
+        >
+          <div class="modal-header">
+            <h3 id="loginTitle">ورود / ثبت‌نام</h3>
+            <button
+              class="modal-close"
+              type="button"
+              id="closeLoginModal"
+              aria-label="بستن"
+            >
+              ×
+            </button>
+          </div>
+
+          <form class="modal-body" id="phoneForm">
+            <label class="field-label" for="phoneInput">شماره موبایل</label>
+            <input
+              id="phoneInput"
+              class="field-input"
+              inputmode="numeric"
+              autocomplete="tel"
+              placeholder="مثلاً 09123456789"
+              maxlength="11"
+              required
+            />
+
+            <button class="btn-primary" type="submit" id="phoneSubmitBtn">
+              ادامه
+            </button>
+
+            <p class="form-hint" id="phoneError" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
 
       <!-- Main Content -->
       <main class="hero">
@@ -206,6 +260,12 @@
         </div>
       </main>
     </div>
+
+    <!--
+      NOTE:
+      1) Add CSS for .header-actions, .login-icon-btn, .modal-* in your style.css
+      2) Add JS logic in script.js (below is a ready block to paste there)
+    -->
 
     <script src="script.js"></script>
   </body>

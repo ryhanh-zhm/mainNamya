@@ -92,3 +92,80 @@ if (menuToggle && nav) {
     closeSearch();
   });
 }
+// --- Login modal + phone flow ---
+const openBtn = document.getElementById("openLoginModal");
+const modal = document.getElementById("loginModal");
+const closeBtn = document.getElementById("closeLoginModal");
+
+const form = document.getElementById("phoneForm");
+const phoneInput = document.getElementById("phoneInput");
+const err = document.getElementById("phoneError");
+const submitBtn = document.getElementById("phoneSubmitBtn");
+
+function openModal() {
+  modal.hidden = false;
+  err.textContent = "";
+  phoneInput.value = "";
+  setTimeout(() => phoneInput.focus(), 50);
+  document.body.style.overflow = "hidden";
+}
+function closeModal() {
+  modal.hidden = true;
+  document.body.style.overflow = "";
+}
+
+openBtn?.addEventListener("click", openModal);
+closeBtn?.addEventListener("click", closeModal);
+modal?.addEventListener("click", (e) => {
+  if (e.target === modal) closeModal();
+});
+document.addEventListener("keydown", (e) => {
+  if (modal && !modal.hidden && e.key === "Escape") closeModal();
+});
+
+function normalizePhone(v) {
+  return (v || "").trim().replace(/\s+/g, "");
+}
+function isValidIranMobile(v) {
+  return /^09\d{9}$/.test(v);
+}
+
+form?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  err.textContent = "";
+
+  const phone = normalizePhone(phoneInput.value);
+
+  if (!isValidIranMobile(phone)) {
+    err.textContent = "شماره موبایل معتبر وارد کنید (مثل 09123456789).";
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "در حال بررسی...";
+
+  try {
+    // TODO: آدرس API خودت را جایگزین کن
+    // خروجی مورد انتظار: { exists: true/false }
+    const res = await fetch(
+      `/api/auth/check-user?phone=${encodeURIComponent(phone)}`,
+      { headers: { Accept: "application/json" } },
+    );
+
+    if (!res.ok) throw new Error("bad response");
+    const data = await res.json();
+
+    if (data.exists) {
+      window.location.href = `/login?phone=${encodeURIComponent(phone)}`;
+    } else {
+      window.location.href = `/signup?phone=${encodeURIComponent(phone)}`;
+    }
+  } catch (e2) {
+    err.textContent = "الان امکان بررسی وجود ندارد. دوباره تلاش کنید.";
+    // fallback (اختیاری):
+    // window.location.href = `/signup?phone=${encodeURIComponent(phone)}`;
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "ادامه";
+  }
+});
